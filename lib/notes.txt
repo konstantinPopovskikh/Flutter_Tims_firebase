@@ -35,6 +35,10 @@ add some code (now commented out)
 go to android/app/build.gradle
 change minSdkVersion to 21
 
-then go to firebase console - authentication and enable google auth
+then go to firebase console - authentication and enable google auth\
+
+add
+firebase_database: ^8.0.0
+into pubspec.yaml dependencies
 
 

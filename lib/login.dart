@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/firebse_test.dart';
 import 'package:hello_flutter/my_home_page.dart';
 import 'google_auth.dart';
 
@@ -35,38 +36,45 @@ class _BodyState extends State<Body> {
     });
   }
 
-  // Widget googleLoginButton() {
-  //   return OutlinedButton(
-  //     onPressed: click,
-  //     child: const Text('Sign in with google'),
-  //   );
-  // }
+  Widget googleLoginButton() {
+    return OutlinedButton(
+        style: OutlinedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(45))),
+        onPressed: click,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Image(image: AssetImage('assets/google_logo.png'), height: 35),
+              Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Text('Sign in with Google',
+                      style: TextStyle(color: Colors.grey, fontSize: 25)))
+            ],
+          ),
+        ));
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          ElevatedButton(
-            child: const Text(
-              'Sign in with Google',
-              style: TextStyle(fontSize: 20),
-            ),
-            onPressed: () {
-              click();
-            },
-          ),
-          ElevatedButton(
-            child: const Text(
-              'Sign out',
-              style: TextStyle(fontSize: 20),
-            ),
-            onPressed: () {
-              FirebaseService().signOutFromGoogle();
-            },
-          ),
-        ],
-      ),
-    );
+    return Align(
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            googleLoginButton(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const GroceryStore()));
+              },
+              child: const Text('Firebase test'),
+            )
+          ],
+        ));
   }
 }
