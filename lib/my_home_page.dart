@@ -4,7 +4,8 @@ import 'package:hello_flutter/post_list.dart';
 import 'package:hello_flutter/text_input_widget.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({required this.name, Key? key}) : super(key: key);
+  final String name;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -16,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void newPost(String text) {
     setState(() {
       if (text != '') {
-        posts.add(Post(text, 'Kostya'));
+        posts.add(Post(text, widget.name));
       }
     });
   }

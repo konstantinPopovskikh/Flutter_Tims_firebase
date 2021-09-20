@@ -1,1 +1,2 @@
-stful - stateful widget code snippet
+stf - stateful widget code snippet
+stl - stateless widget snippet
