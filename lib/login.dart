@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/firebse_test.dart';
-import 'package:hello_flutter/my_home_page.dart';
 import 'google_auth.dart';
 
 class LoginPage extends StatelessWidget {
@@ -27,13 +26,8 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   TextEditingController controller = TextEditingController();
 
-  void click() {
-    FirebaseService().signInwithGoogle().then((value) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => MyHomePage(name: value.email.toString())));
-    });
+  void click() async {
+    await FirebaseService().signInwithGoogle().then((value) => null);
   }
 
   Widget googleLoginButton() {
@@ -65,6 +59,12 @@ class _BodyState extends State<Body> {
         child: Column(
           children: [
             googleLoginButton(),
+            ElevatedButton(
+              onPressed: () {
+                FirebaseService().signOutFromGoogle();
+              },
+              child: const Text('Sign Out'),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

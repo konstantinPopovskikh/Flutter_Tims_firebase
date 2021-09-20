@@ -42,3 +42,9 @@ firebase_database: ^8.0.0
 into pubspec.yaml dependencies
 
 
+https://learnflutterwithme.com/cloud-firestore
+
+flutter pub add firebase_core
+flutter pub add cloud_firestore
+
+
