@@ -1,2 +1,40 @@
 stf - stateful widget code snippet
 stl - stateless widget snippet
+
+firebase.google.com
+go to console
+
+click android icon
+
+for creating SHA-1 key: (https://developers.google.com/android/guides/client-auth)
+keytool -list -v -alias androiddebugkey -keystore /home/konstantin/.android/debug.keystore
+
+put google-services.json into android/app
+
+in /android dir open build.gradle file
+add dependency
+
+inside /android/app open build.gradle
+
+in case of errors:
+cd android
+./gradlew --refresh-dependencies
+
+add dependencies to pubspec.yaml (make sure correct indentation):
+firebase_auth: ^3.1.1
+google_sign_in: ^5.1.0
+
+then uncomment "assets" and put:
+    - assets/
+
+put google logo in assets folder
+
+go to android/settings.gradle
+add some code (now commented out)
+
+go to android/app/build.gradle
+change minSdkVersion to 21
+
+then go to firebase console - authentication and enable google auth
+
+
